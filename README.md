@@ -23,7 +23,7 @@ The on-screen `← Prev / Next →` buttons are there in case the ENGAGE browser
 
 ## Deploying to Cloudflare Pages via GitHub
 
-Target URL: **recovery.kanonindustries.com**
+Target URL: **confessionary.kanonindustries.com**
 
 1. **Create a public GitHub repo** (e.g. `confessional-deck`). Push the contents of this `presentation/` folder as the repo root.
 2. **Cloudflare Pages → Create project → Connect to Git**, pick the repo.
@@ -32,10 +32,10 @@ Target URL: **recovery.kanonindustries.com**
    - **Build command:** *(leave empty)*
    - **Build output directory:** `/`
 4. Deploy. Cloudflare gives you a `*.pages.dev` URL — verify it works there first.
-5. **Custom domain:** Cloudflare Pages → your project → Custom domains → Add Domain → enter `recovery.kanonindustries.com`.
+5. **Custom domain:** Cloudflare Pages → your project → Custom domains → Add Domain → enter `confessionary.kanonindustries.com`.
    - If `kanonindustries.com` is on Cloudflare DNS already, Cloudflare adds the CNAME automatically.
    - If not, Cloudflare shows you a CNAME record (`recovery → <project>.pages.dev`) to add manually wherever your DNS lives.
-6. Wait ~1–2 min for SSL provisioning. Then `https://recovery.kanonindustries.com` is live.
+6. Wait ~1–2 min for SSL provisioning. Then `https://confessionary.kanonindustries.com` is live.
 
 Every git push auto-deploys. Last-minute slide tweaks → push → live in ~30s.
 
