@@ -294,6 +294,21 @@
     line-height: 1.6;
   }
 
+  /* Two-column decisions: dense layout for slides with many rows */
+  .decisions.two-col {
+    grid-template-columns: 1fr 1fr;
+    column-gap: 56px;
+    max-width: 1200px;
+  }
+  .decisions.two-col .decision {
+    grid-template-columns: 1fr;
+    gap: 4px;
+    padding: 12px 0;
+  }
+  .decisions.two-col .decision .what { font-size: 19px; }
+  .decisions.two-col .decision .why { font-size: 13px; line-height: 1.55; }
+  .decisions.two-col .decision:nth-last-child(2) { border-bottom: 1px solid var(--rule); }
+
   /* References */
   .refs {
     list-style: none;
@@ -466,7 +481,7 @@
       <span class="label">Design Decisions</span>
     </div>
     <h2>Why the room feels the way it does.</h2>
-    <div class="decisions">
+    <div class="decisions two-col">
       <div class="decision">
         <div class="what">A temple, not a church.</div>
         <div class="why">The praxis of confession is a cross-cultural form of disclosure. We borrowed the practice but not the religion, so the architectural shell is a non-denominational temple. The agent's avatar follows the same logic — religious in feel, unplaceable in tradition.</div>
