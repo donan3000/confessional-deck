@@ -459,55 +459,13 @@
     </div>
   </section>
 
-  <!-- 5. §4 USER STORIES -->
+  <!-- 5. §4 DESIGN DECISIONS -->
   <section class="slide">
     <div class="section-marker">
       <span class="num">§ 4</span>
-      <span class="label">User Stories</span>
+      <span class="label">Design Decisions</span>
     </div>
-    <h2>What does a visit look like?</h2>
-    <ul class="stories">
-      <li><span class="as">As Lena,</span> I want the room to close around me as I enter, so that I feel I have arrived somewhere private.</li>
-      <li><span class="as">As any visitor,</span> I want to sit without fiddling with controls, so that the act of sitting itself is part of the ritual.</li>
-      <li><span class="as">As any visitor,</span> I want to hold a candle, so that my hands have something to do and the light is something I control.</li>
-      <li><span class="as">As any visitor,</span> I want to speak aloud and have the listener respond, so that the encounter feels like dialogue, not interface.</li>
-      <li><span class="as">As Jonas,</span> I want what I say to remain between me and the listener, so that I can be honest without consequence.</li>
-      <li><span class="as">As any visitor,</span> I want to come back later and pick up where we left off, so that the space supports an ongoing practice.</li>
-    </ul>
-  </section>
-
-  <!-- 6. §5 REQUIREMENTS -->
-  <section class="slide">
-    <div class="section-marker">
-      <span class="num">§ 5</span>
-      <span class="label">Requirements</span>
-    </div>
-    <h2>What did we build to?</h2>
-    <table class="req">
-      <thead>
-        <tr><th>ID</th><th>Category</th><th>Requirement</th></tr>
-      </thead>
-      <tbody>
-        <tr><td class="id">F1</td><td class="cat">Functional</td><td>Curtain auto-opens on entry, closes on exit, and syncs across users.</td></tr>
-        <tr><td class="id">F2</td><td class="cat">Functional</td><td>The user can sit on the booth bench and stand back up.</td></tr>
-        <tr><td class="id">F3</td><td class="cat">Functional</td><td>A candle can be picked up; it emits real light while held.</td></tr>
-        <tr><td class="id">F4</td><td class="cat">Functional</td><td>The user can set the candle down on a side table before teleporting to the seat.</td></tr>
-        <tr><td class="id">F5</td><td class="cat">Functional</td><td>An AI agent (or human role-player) occupies the listener's side of the booth.</td></tr>
-        <tr><td class="id">F6</td><td class="cat">Functional</td><td>The agent has per-user memory; conversations are not shared across visitors.</td></tr>
-        <tr><td class="id">N1</td><td class="cat">Non-functional</td><td>Voices in the booth do not carry to others in the temple.</td></tr>
-        <tr><td class="id">N2</td><td class="cat">Non-functional</td><td>Atmosphere: dim, warm, contemplative; baked lighting; one controllable point-light (the candle).</td></tr>
-        <tr><td class="id">N3</td><td class="cat">Non-functional</td><td>Mobile-first; under 200k tris for the location, under 15k per IFX; no custom C# scripts.</td></tr>
-      </tbody>
-    </table>
-  </section>
-
-  <!-- 7. §6 DESIGN DECISIONS — ATMOSPHERE -->
-  <section class="slide">
-    <div class="section-marker">
-      <span class="num">§ 6</span>
-      <span class="label">Design Decisions — Atmosphere</span>
-    </div>
-    <h2>Why this room feels the way it does.</h2>
+    <h2>Why the room feels the way it does.</h2>
     <div class="decisions">
       <div class="decision">
         <div class="what">A temple, not a church.</div>
@@ -525,17 +483,6 @@
         <div class="what">A holdable candle.</div>
         <div class="why">A small object for the hands lets the mind settle. The candle also gives the user a measure of <em class="term">agency over the light</em> — the only changeable thing in the room.</div>
       </div>
-    </div>
-  </section>
-
-  <!-- 8. §7 DESIGN DECISIONS — INTERACTION -->
-  <section class="slide">
-    <div class="section-marker">
-      <span class="num">§ 7</span>
-      <span class="label">Design Decisions — Interaction</span>
-    </div>
-    <h2>How the visitor moves through the space.</h2>
-    <div class="decisions">
       <div class="decision">
         <div class="what">GenericMovable over Animator.</div>
         <div class="why">An Animator-based curtain proved fragile in ENGAGE — Inspector edits don't fire state listeners; triggers fire on load. A direct lerp via <em class="term">NetworkStateTrigger_GenericMovable</em> between two sibling position markers was more robust and easier to debug.</div>
@@ -555,52 +502,26 @@
     </div>
   </section>
 
-  <!-- 9. §8 DESIGN DECISIONS — THE AI AGENT -->
+  <!-- 6. §5 REFERENCES -->
   <section class="slide">
     <div class="section-marker">
-      <span class="num">§ 8</span>
-      <span class="label">Design Decisions — The AI Agent</span>
+      <span class="num">§ 5</span>
+      <span class="label">References</span>
     </div>
-    <h2>Who is on the other side of the lattice?</h2>
-    <div class="decisions">
-      <div class="decision">
-        <div class="what">Per-user memory.</div>
-        <div class="why">The agent remembers each visitor's conversation, but only theirs. Memory is not shared across users. This both supports return visits and prevents the listener from being a leak channel between visitors.</div>
-      </div>
-      <div class="decision">
-        <div class="what">Religious, but unplaceable.</div>
-        <div class="why">The avatar is stylised so it reads as a religious figure without belonging to any particular tradition — consistent with the temple-not-church framing.</div>
-      </div>
-      <div class="decision">
-        <div class="what">AI or human, interchangeable.</div>
-        <div class="why">The role of the listener is a slot. Either an AI agent or another session participant can occupy it, and the rest of the space behaves the same. This is a design choice: the system should still work if the AI does not.</div>
-      </div>
-      <div class="decision">
-        <div class="what">A lattice between sides.</div>
-        <div class="why">The listener is suggested, not displayed plainly. Lower fidelity is forgiving; the implied presence is stronger than the explicit one.</div>
-      </div>
-    </div>
+    <h2>References</h2>
+    <ol class="refs">
+      <li>Pennebaker, J. W. (1997). <em>Writing about emotional experiences as a therapeutic process.</em> Psychological Science, 8(3), 162–166.</li>
+      <li>Lucas, G. M., Gratch, J., King, A., &amp; Morency, L.-P. (2014). <em>It's only a computer: Virtual humans increase willingness to disclose.</em> Computers in Human Behavior, 37, 94–100.</li>
+    </ol>
   </section>
 
-  <!-- 10. §9 TEAM & COLLABORATION MODEL -->
+  <!-- 7. §6 HOW WE WORKED -->
   <section class="slide">
     <div class="section-marker">
-      <span class="num">§ 9</span>
-      <span class="label">Team &amp; Collaboration Model</span>
+      <span class="num">§ 6</span>
+      <span class="label">Team &amp; Process</span>
     </div>
     <h2>How the two of us worked.</h2>
-    <p class="lede">Jonathan Brandes and Levi Dal Canton. We built everything together — concept, design, room, code.</p>
-    <p>Our working pattern was deliberately interleaved: at every step one of us was researching while the other was deploying. Then we swapped. Same room, same screen, two pairs of hands moving in turn.</p>
-    <p><strong>Mode.</strong> Deeply collaborative on direction; cooperative-by-task on execution. Decisions were made jointly; specific implementation moments were owned by whichever of us was at the keyboard at the time.</p>
-  </section>
-
-  <!-- 11. §10 DEVELOPMENT TASKS -->
-  <section class="slide">
-    <div class="section-marker">
-      <span class="num">§ 10</span>
-      <span class="label">Development Tasks</span>
-    </div>
-    <h2>What we made.</h2>
     <table class="req">
       <thead>
         <tr><th>Area</th><th>Work</th></tr>
@@ -614,31 +535,8 @@
         <tr><td class="cat">Presentation</td><td>This deck, deployed at <em class="term">confessionary.kanonindustries.com</em> and opened on the in-world ENGAGE browser.</td></tr>
       </tbody>
     </table>
-    <p class="small" style="margin-top: 1.2em;">Each row was worked on by both of us at different points, following the research-deploy-swap pattern described in §9.</p>
-  </section>
-
-  <!-- 12. LIVE DEMO -->
-  <section class="slide">
-    <div class="section-marker">
-      <span class="num">§ 11</span>
-      <span class="label">Live Demonstration</span>
-    </div>
-    <h2 style="font-size: clamp(48px, 6.5vw, 88px); margin-top: 1em;">Now: the room.</h2>
-    <p class="lede" style="margin-top: 0.6em;">Headset on. Watch the screen.</p>
-  </section>
-
-  <!-- 13. REFERENCES + Q&A -->
-  <section class="slide">
-    <div class="section-marker">
-      <span class="num">§ 12</span>
-      <span class="label">References &amp; Discussion</span>
-    </div>
-    <h2>References</h2>
-    <ol class="refs">
-      <li>Pennebaker, J. W. (1997). <em>Writing about emotional experiences as a therapeutic process.</em> Psychological Science, 8(3), 162–166.</li>
-      <li>Lucas, G. M., Gratch, J., King, A., &amp; Morency, L.-P. (2014). <em>It's only a computer: Virtual humans increase willingness to disclose.</em> Computers in Human Behavior, 37, 94–100.</li>
-    </ol>
-    <p style="margin-top: 2em;"><strong>Thank you.</strong> Questions welcome.</p>
+    <p class="small" style="margin-top: 1.2em;">Working pattern: at every step one of us was researching while the other was deploying — then we swapped. Same room, same screen, two pairs of hands moving in turn. Each row above was touched by both of us at different points.</p>
+    <p style="margin-top: 2em;"><strong>Thank you.</strong> Questions welcome — and afterwards, the room.</p>
   </section>
 
 </div>
